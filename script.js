@@ -5,19 +5,21 @@ var data = [
 ]
 
 function tampil() {
-    var table = document.getElementById('tabel')
-    table.innerHTML = `<thead class="thead-light">
+    var thead = document.querySelector('thead')
+    var tbody = document.querySelector('tbody')
+    thead.innerHTML = `
     <tr>
-        <th>No</th>
-        <th>Jurusan</th>
-        <th>Action</th>
+      <th scope="col">No.</th>
+      <th scope="col">Jurusan</th>
+      <th scope="col">Action</th>
     </tr>
-</thead>`
+  `
     for( let i = 0; i < data.length; i ++){
-        var btnedit = `<button id="edit" onclick='edit(`+i+`)'>Edit</button>`
-        var btnhapus = `<button id="hapus" onclick='hapus(`+i+`)'>Hapus</button>`
+        
+        var btnedit = `<button type="button" class="btn btn-primary id="edit" onclick='edit(`+i+`)'>Edit</button>`
+        var btnhapus = `<button type="button" class="btn btn-primary" onclick='hapus(`+i+`)'>Hapus</button>`
         j = 1 + i
-        table.innerHTML+= `<tr>
+        tbody.innerHTML+= `<tr>
         <td>`+j+`</td>
         <td>`+data[i]+`</td>
         <td>`+btnedit+ ` `+btnhapus+`
